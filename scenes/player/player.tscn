@@ -217,5 +217,13 @@ regeneration_per_second = 7
 
 [node name="Equipment" parent="." instance=ExtResource("14_s8lw7")]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.305882, 0.305882, 0.305882, 1)
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 1.5
+omni_attenuation = 0.00340059
+
 [connection signal="lost_health_state" from="Health" to="." method="_on_health_lost_health_state"]
 [connection signal="body_entered" from="HurtBox" to="Health" method="_on_hurt_box_body_entered"]

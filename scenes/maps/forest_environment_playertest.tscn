@@ -19,12 +19,12 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_redao"]
 panorama = ExtResource("4_a8ms8")
 
-[sub_resource type="Sky" id="Sky_fp8ow"]
+[sub_resource type="Sky" id="Sky_vsry6"]
 sky_material = SubResource("PanoramaSkyMaterial_redao")
 
 [sub_resource type="Environment" id="Environment_drh2g"]
 background_mode = 2
-sky = SubResource("Sky_fp8ow")
+sky = SubResource("Sky_vsry6")
 ambient_light_source = 3
 fog_enabled = true
 fog_light_color = Color(0.188235, 0.207843, 0.239216, 1)
@@ -35,7 +35,7 @@ volumetric_fog_emission_energy = 68.62
 volumetric_fog_anisotropy = 0.15
 volumetric_fog_sky_affect = 0.33
 
-[node name="forest_environment" instance=ExtResource("1_ke5b8")]
+[node name="forest_environment2" instance=ExtResource("1_ke5b8")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00766659, 0, 0)
@@ -152,6 +152,9 @@ collision_mask = 0
 [node name="StaticBody3D" parent="ground_tile_03" index="0"]
 collision_layer = 4
 collision_mask = 4
+
+[node name="ground_tile_08" parent="." index="25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 40.5779, 0)
 
 [editable path="Campfires/campfire4"]
 [editable path="Campfires/campfire3"]
