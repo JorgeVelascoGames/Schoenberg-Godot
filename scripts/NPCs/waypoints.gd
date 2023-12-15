@@ -1,5 +1,5 @@
 extends Node
-
+#Deprecated, no loger needed
 class_name WayPoints
 
 var waypoints: Array[Node3D]

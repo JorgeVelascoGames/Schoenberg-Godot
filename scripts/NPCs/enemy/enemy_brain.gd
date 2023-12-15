@@ -3,7 +3,6 @@ extends CharacterBody3D
 class_name EnemyBrain
 @onready var pathfinding = $Pathfinding
 @onready var npc_movement = $NPCMovement
-@onready var way_points = $WayPoints as WayPoints
 @onready var player_detection = $head/PlayerDetection as PlayerDetection
 @onready var state_machine = $StateMachine as StateMachine
 @onready var model: EnemyModelManager = $Model as EnemyModelManager
@@ -22,12 +21,8 @@ class_name EnemyBrain
 @export var stun_time: float = 5.0
 @export var reload_time: float = 4.0
 
-@export_group("References")
-var waypoint_manager: WaypoitsManager
-
 
 func _ready():
-	waypoint_manager = get_tree().get_nodes_in_group("waypoint_manager").pick_random()
 	head.get_parent().remove_child(head)
 	model.head_attachment.add_child(head)
 	player_detection.start_looking_for_player()

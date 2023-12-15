@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://qtyetc45l4sr"]
+[gd_scene load_steps=16 format=3 uid="uid://qtyetc45l4sr"]
 
 [ext_resource type="Script" path="res://scripts/NPCs/enemy/enemy_brain.gd" id="1_1320x"]
 [ext_resource type="PackedScene" uid="uid://bw6x2kh6con1i" path="res://scenes/components/pathfinding.tscn" id="2_af6js"]
 [ext_resource type="PackedScene" uid="uid://bdpyrfe35wfu1" path="res://scenes/models/fleshman.tscn" id="2_fy6mg"]
 [ext_resource type="Script" path="res://scripts/NPCs/npc_movement.gd" id="3_vfc8h"]
-[ext_resource type="Script" path="res://scripts/NPCs/waypoints.gd" id="4_6xuq5"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_uyb5d"]
 [ext_resource type="Script" path="res://scripts/NPCs/states/patrol.gd" id="6_d5v10"]
 [ext_resource type="Script" path="res://scripts/NPCs/states/idle.gd" id="7_opmny"]
@@ -47,14 +46,10 @@ radius = 5.0
 debug_path_custom_color = Color(0.952941, 0, 0.258824, 1)
 debug_path_custom_point_size = 6.25
 
-[node name="Pathfinding" parent="." node_paths=PackedStringArray("waypoints_manager") instance=ExtResource("2_af6js")]
-waypoints_manager = NodePath("../WayPoints")
+[node name="Pathfinding" parent="." instance=ExtResource("2_af6js")]
 
 [node name="NPCMovement" type="Node" parent="."]
 script = ExtResource("3_vfc8h")
-
-[node name="WayPoints" type="Node" parent="."]
-script = ExtResource("4_6xuq5")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_uyb5d")

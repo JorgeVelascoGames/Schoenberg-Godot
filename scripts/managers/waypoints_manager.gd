@@ -1,5 +1,5 @@
 extends Node
-
+#Deprecated, no loger needed
 class_name WaypoitsManager
 
 @export var waypoints: Array[Node3D]

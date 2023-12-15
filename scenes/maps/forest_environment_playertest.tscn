@@ -54,7 +54,7 @@ shape = SubResource("ConcavePolygonShape3D_4jo5s")
 shape = SubResource("ConcavePolygonShape3D_66tij")
 
 [node name="Player" parent="." index="6" instance=ExtResource("3_ykpsq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9519, 0.874516, -3.74623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.7312, 9.44266, 103.735)
 
 [node name="ForestWorldEnvironment" type="WorldEnvironment" parent="." index="7"]
 environment = SubResource("Environment_drh2g")
@@ -140,6 +140,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305535, 0, 26.2139)
 shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
+
+[node name="StaticBody3D" parent="ground_tile_01" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="StaticBody3D" parent="ground_tile_02" index="0"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="StaticBody3D" parent="ground_tile_03" index="0"]
+collision_layer = 4
+collision_mask = 4
 
 [editable path="Campfires/campfire4"]
 [editable path="Campfires/campfire3"]
