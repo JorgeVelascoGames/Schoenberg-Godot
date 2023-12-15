@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bqoky58ttx8rg"]
+
+[ext_resource type="Texture2D" uid="uid://b2fu5oin8o71h" path="res://assets/textures/concrete_lowres.png" id="1_oo311"]
+[ext_resource type="Texture2D" uid="uid://pnnkn1lydigv" path="res://assets/textures/concrete_lowres_n.png" id="2_lq83a"]
+
+[resource]
+albedo_texture = ExtResource("1_oo311")
+normal_enabled = true
+normal_texture = ExtResource("2_lq83a")
+uv1_scale = Vector3(0.345, 0.345, 0.345)
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ufoer3j6v0uu"]
+
+[ext_resource type="PackedScene" uid="uid://bkj2hmp7gbtuc" path="res://assets/meshes/props/barrel_lowres.blend" id="1_xhg3u"]
+
+[node name="BarrelLowres" instance=ExtResource("1_xhg3u")]
+
+[node name="StaticBody3D" parent="barrel_002" index="0"]
+collision_layer = 4
+collision_mask = 5

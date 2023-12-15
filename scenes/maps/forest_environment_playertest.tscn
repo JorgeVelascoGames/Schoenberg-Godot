@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://p5n7oaty4bvp"]
+
+[ext_resource type="PackedScene" uid="uid://bv6pv14bsycw6" path="res://assets/meshes/Environment/forest_environment.blend" id="1_ke5b8"]
+[ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="2_ovclo"]
+[ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="3_ykpsq"]
+[ext_resource type="Texture2D" uid="uid://drlfd3h4aofdr" path="res://assets/textures/sky_night.png" id="4_a8ms8"]
+[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/enviroments/forest/campfire.tscn" id="5_mt34h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vvg5b"]
+material = ExtResource("2_ovclo")
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4jo5s"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_66tij"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_redao"]
+panorama = ExtResource("4_a8ms8")
+
+[sub_resource type="Sky" id="Sky_fp8ow"]
+sky_material = SubResource("PanoramaSkyMaterial_redao")
+
+[sub_resource type="Environment" id="Environment_drh2g"]
+background_mode = 2
+sky = SubResource("Sky_fp8ow")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.188235, 0.207843, 0.239216, 1)
+fog_density = 0.04
+fog_sky_affect = 0.8
+volumetric_fog_albedo = Color(0.168627, 0.168627, 0.168627, 1)
+volumetric_fog_emission_energy = 68.62
+volumetric_fog_anisotropy = 0.15
+volumetric_fog_sky_affect = 0.33
+
+[node name="forest_environment" instance=ExtResource("1_ke5b8")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00766659, 0, 0)
+mesh = SubResource("PlaneMesh_vvg5b")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2" index="0"]
+shape = SubResource("ConcavePolygonShape3D_4jo5s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_66tij")
+
+[node name="Player" parent="." index="6" instance=ExtResource("3_ykpsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9519, 0.874516, -3.74623)
+
+[node name="ForestWorldEnvironment" type="WorldEnvironment" parent="." index="7"]
+environment = SubResource("Environment_drh2g")
+
+[node name="cabin" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46278, 0, 19.7617)
+
+[node name="StaticBody3D" parent="cabin" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="StaticBody3D" parent="tile_wall" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="StaticBody3D" parent="tile_wall_hole" index="0"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="stone_pilar" parent="." index="13"]
+transform = Transform3D(0.856716, 0, 0.241095, 0, 1, 0, -0.74177, 0, 0.278455, 9.42387, 0, -8.15947)
+
+[node name="Log" parent="." index="14"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -5.64299, 0, 38.0977)
+
+[node name="rock" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 0.968614, -0.248572, 0, 0.248572, 0.968614, -22.1878, 0.250008, 38.5308)
+
+[node name="Campfires" type="Node" parent="." index="17"]
+
+[node name="campfire4" parent="Campfires" index="0" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223013, 0, 7.00601)
+
+[node name="OmniLight3D" parent="Campfires/campfire4" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire3" parent="Campfires" index="1" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31033, 0, -8.18897)
+
+[node name="OmniLight3D" parent="Campfires/campfire3" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire8" parent="Campfires" index="2" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2556, 0, 42.5069)
+
+[node name="OmniLight3D" parent="Campfires/campfire8" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire7" parent="Campfires" index="3" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4502, 0, 42.6209)
+
+[node name="OmniLight3D" parent="Campfires/campfire7" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire6" parent="Campfires" index="4" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.336, 0, 43.2988)
+
+[node name="OmniLight3D" parent="Campfires/campfire6" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire5" parent="Campfires" index="5" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3328, 0, 41.0366)
+
+[node name="OmniLight3D" parent="Campfires/campfire5" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[node name="campfire2" parent="Campfires" index="6" instance=ExtResource("5_mt34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305535, 0, 26.2139)
+
+[node name="OmniLight3D" parent="Campfires/campfire2" index="3"]
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 9.01413
+
+[editable path="Campfires/campfire4"]
+[editable path="Campfires/campfire3"]
+[editable path="Campfires/campfire8"]
+[editable path="Campfires/campfire7"]
+[editable path="Campfires/campfire6"]
+[editable path="Campfires/campfire5"]
+[editable path="Campfires/campfire2"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw4lchcgmj2di"]
+
+[ext_resource type="Script" path="res://scripts/NPCs/enemy/enemy_brain.gd" id="1_0vn7x"]
+[ext_resource type="PackedScene" uid="uid://bw6x2kh6con1i" path="res://scenes/components/pathfinding.tscn" id="1_fjiuf"]
+[ext_resource type="Script" path="res://scripts/NPCs/npc_movement.gd" id="2_xxiie"]
+[ext_resource type="Script" path="res://scripts/NPCs/waypoints.gd" id="4_q18cr"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_qtq4a"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/patrol.gd" id="6_c0cb4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cftyc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8me8j"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_rp6l7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4l8y"]
+albedo_color = Color(0.886275, 0.117647, 0.239216, 1)
+
+[node name="EnemyBasic" type="CharacterBody3D"]
+script = ExtResource("1_0vn7x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cftyc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_8me8j")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+path_max_distance = 5.01
+avoidance_enabled = true
+radius = 5.0
+debug_enabled = true
+debug_path_custom_color = Color(0.952941, 0, 0.258824, 1)
+debug_path_custom_point_size = 6.25
+
+[node name="Pathfinding" parent="." node_paths=PackedStringArray("waypoints_manager") instance=ExtResource("1_fjiuf")]
+waypoints_manager = NodePath("../WayPoints")
+
+[node name="NPCMovement" type="Node" parent="."]
+script = ExtResource("2_xxiie")
+
+[node name="WayPoints" type="Node" parent="."]
+script = ExtResource("4_q18cr")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_qtq4a")
+initial_state = NodePath("Patrol")
+
+[node name="Patrol" type="Node" parent="StateMachine"]
+script = ExtResource("6_c0cb4")
+
+[node name="head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.814808, 0, 0, 0, 0.677197, 0, 0, 0, 0.61511, 0, 0.837744, -0.282807)
+mesh = SubResource("PrismMesh_rp6l7")
+surface_material_override/0 = SubResource("StandardMaterial3D_f4l8y")
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="Pathfinding" method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent3D" to="Pathfinding" method="_on_navigation_agent_3d_target_reached"]

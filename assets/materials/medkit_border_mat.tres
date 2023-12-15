@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dirtuv4d8h28d"]
+
+[ext_resource type="Texture2D" uid="uid://plv1c3tvj4gi" path="res://assets/meshes/medkit_cothon_lowres_tex.png" id="1_8gbbm"]
+
+[resource]
+albedo_color = Color(0.392157, 0.341176, 0.329412, 1)
+albedo_texture = ExtResource("1_8gbbm")

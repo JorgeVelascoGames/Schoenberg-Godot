@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://qqcrpbpe5my0"]
+
+[ext_resource type="Script" path="res://scripts/player/items/item_resource.gd" id="1_w46u0"]
+
+[resource]
+script = ExtResource("1_w46u0")
+item_name = "Shotgun"
+time_to_prepare = 2.0
+cooldown = 1.0
+item_range = 7.0
+max_charges = 3
+current_charges = 3
+usable = true

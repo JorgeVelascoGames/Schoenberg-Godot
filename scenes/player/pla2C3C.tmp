@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxwqns1tt5ci6"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_oyen4"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="2_tq8io"]
+[ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_0ixqj"]
+[ext_resource type="Script" path="res://scripts/player/states/walk.gd" id="4_njtbl"]
+[ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_qpimf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n8x0t"]
+lightmap_size_hint = Vector2i(17, 13)
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ik5j"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oyen4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.670675, 0)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_n8x0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7ik5j")
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_tq8io")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_0ixqj")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_njtbl")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("5_qpimf")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RayCasts" type="Node3D" parent="."]
+
+[node name="RayCastGroundDetector" type="RayCast3D" parent="RayCasts"]

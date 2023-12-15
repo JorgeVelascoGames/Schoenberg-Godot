@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=3 uid="uid://qtyetc45l4sr"]
+
+[ext_resource type="Script" path="res://scripts/NPCs/enemy/enemy_brain.gd" id="1_1320x"]
+[ext_resource type="PackedScene" uid="uid://bw6x2kh6con1i" path="res://scenes/components/pathfinding.tscn" id="2_af6js"]
+[ext_resource type="PackedScene" uid="uid://bdpyrfe35wfu1" path="res://scenes/models/fleshman.tscn" id="2_fy6mg"]
+[ext_resource type="Script" path="res://scripts/NPCs/npc_movement.gd" id="3_vfc8h"]
+[ext_resource type="Script" path="res://scripts/NPCs/waypoints.gd" id="4_6xuq5"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_uyb5d"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/patrol.gd" id="6_d5v10"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/idle.gd" id="7_opmny"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/stuned.gd" id="8_rf4nw"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/hunting.gd" id="9_1tedo"]
+[ext_resource type="Script" path="res://scripts/NPCs/states/reloading.gd" id="10_1sunx"]
+[ext_resource type="PackedScene" uid="uid://85wl8t821pag" path="res://scenes/components/player_detection.tscn" id="11_i8e6s"]
+[ext_resource type="PackedScene" uid="uid://01unuqdc8eem" path="res://tools/TestingHolder.tscn" id="12_gi4h1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6de3"]
+radius = 0.568678
+height = 2.10292
+
+[sub_resource type="PrismMesh" id="PrismMesh_rp6l7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4l8y"]
+albedo_color = Color(0.886275, 0.117647, 0.239216, 1)
+
+[node name="Fleshman" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_1320x")
+hunting_speed = 3.3
+max_detection_range = 15.0
+mid_detection_range = 13.0
+min_detection_range = 8.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0348, -0.142608)
+shape = SubResource("CapsuleShape3D_l6de3")
+
+[node name="Model" parent="." instance=ExtResource("2_fy6mg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.00621605, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+path_max_distance = 5.01
+avoidance_enabled = true
+radius = 5.0
+debug_path_custom_color = Color(0.952941, 0, 0.258824, 1)
+debug_path_custom_point_size = 6.25
+
+[node name="Pathfinding" parent="." node_paths=PackedStringArray("waypoints_manager") instance=ExtResource("2_af6js")]
+waypoints_manager = NodePath("../WayPoints")
+
+[node name="NPCMovement" type="Node" parent="."]
+script = ExtResource("3_vfc8h")
+
+[node name="WayPoints" type="Node" parent="."]
+script = ExtResource("4_6xuq5")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_uyb5d")
+initial_state = NodePath("Patrol")
+
+[node name="Patrol" type="Node" parent="StateMachine"]
+script = ExtResource("6_d5v10")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("7_opmny")
+min_idle_time = 10
+max_idle_time = 25
+
+[node name="Timer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
+
+[node name="Stuned" type="Node" parent="StateMachine"]
+script = ExtResource("8_rf4nw")
+
+[node name="Timer" type="Timer" parent="StateMachine/Stuned"]
+one_shot = true
+
+[node name="Hunting" type="Node" parent="StateMachine"]
+script = ExtResource("9_1tedo")
+
+[node name="Timer" type="Timer" parent="StateMachine/Hunting"]
+one_shot = true
+
+[node name="Reloading" type="Node" parent="StateMachine"]
+script = ExtResource("10_1sunx")
+
+[node name="Timer" type="Timer" parent="StateMachine/Reloading"]
+one_shot = true
+
+[node name="head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.814808, 0, 0, 0, 0.677197, 0, 0, 0, 0.61511, 0, 1.53832, -0.282807)
+visible = false
+mesh = SubResource("PrismMesh_rp6l7")
+surface_material_override/0 = SubResource("StandardMaterial3D_f4l8y")
+
+[node name="PlayerDetection" parent="head" instance=ExtResource("11_i8e6s")]
+vision_cone_arc = 75
+visual_indicator = true
+
+[node name="TestingHolder" parent="." instance=ExtResource("12_gi4h1")]

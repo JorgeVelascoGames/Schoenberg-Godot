@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://b06vjha8y37rw"]
+
+[ext_resource type="Script" path="res://scripts/player/items/item_resource.gd" id="1_x5vcv"]
+
+[resource]
+script = ExtResource("1_x5vcv")
+item_name = "Medkit"
+time_to_prepare = 10.0
+cooldown = 1.0
+item_range = 0.0
+max_charges = 2
+current_charges = 2
+usable = true

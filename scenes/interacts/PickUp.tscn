@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://74tbrpfshvqm"]
+
+[ext_resource type="Script" path="res://scripts/player/items/pick_up.gd" id="1_you10"]
+[ext_resource type="PackedScene" uid="uid://bq85mkwqpbuct" path="res://scenes/items/shotgun_model.tscn" id="2_cgpv3"]
+[ext_resource type="PackedScene" uid="uid://dlthkwdbqdamv" path="res://scenes/items/medkit_model.tscn" id="3_13mm1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7w6wl"]
+friction = 0.8
+rough = true
+bounce = 0.19
+absorbent = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jik8u"]
+size = Vector3(0.265843, 1.42474, 0.187701)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o761o"]
+size = Vector3(0.452, 1.178, 1.29)
+
+[node name="PickUp" type="RigidBody3D" groups=["interacts"]]
+collision_layer = 8
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_7w6wl")
+script = ExtResource("1_you10")
+
+[node name="Shotgun" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0534737, 0.0731749, -0.240886)
+visible = false
+shape = SubResource("BoxShape3D_jik8u")
+disabled = true
+
+[node name="ShotgunModel" parent="Shotgun" instance=ExtResource("2_cgpv3")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, -0.0534737, 0.240668, -0.000565901)
+
+[node name="Medkit" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.412, 0, 0, 0, 0.412, 0, 0, 0, 0.412, 0, 0.176133, 0)
+visible = false
+shape = SubResource("BoxShape3D_o761o")
+disabled = true
+
+[node name="Medkit_model" parent="Medkit" instance=ExtResource("3_13mm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.176133, 0)

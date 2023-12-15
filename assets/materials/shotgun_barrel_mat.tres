@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dc8gd3770nv56"]
+
+[ext_resource type="Texture2D" uid="uid://dgqx5i661c5j6" path="res://assets/meshes/metal_rust_lowres_text_n.png" id="2_8hwqf"]
+[ext_resource type="Texture2D" uid="uid://bmxsfv2hl3fwa" path="res://assets/meshes/Shotgun_metal_rust_lowres_text.png" id="2_6507b"]
+
+[resource]
+albedo_texture = ExtResource("2_6507b")
+normal_enabled = true
+normal_texture = ExtResource("2_8hwqf")
+uv1_scale = Vector3(1.175, 1.175, 1.175)

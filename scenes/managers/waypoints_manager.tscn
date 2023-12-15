@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwpoc433esfhj"]
+
+[ext_resource type="Script" path="res://scripts/managers/waypoints_manager.gd" id="1_orq2e"]
+
+[node name="WaypointsManager" type="Node3D" node_paths=PackedStringArray("waypoints")]
+script = ExtResource("1_orq2e")
+waypoints = [NodePath("Waypoint_001"), NodePath("Waypoint_002"), NodePath("Waypoint_003"), NodePath("Waypoint_004"), NodePath("Waypoint_005"), NodePath("Waypoint_006")]
+
+[node name="Waypoint_001" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22804, 0, 38.2208)
+
+[node name="Waypoint_002" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1794, 0, 38.2208)
+
+[node name="Waypoint_003" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1794, 0, 27.1677)
+
+[node name="Waypoint_004" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0748, 0, 23.7502)
+
+[node name="Waypoint_005" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8071, 0, 37.5557)
+
+[node name="Waypoint_006" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7033, 0, 23.4928)

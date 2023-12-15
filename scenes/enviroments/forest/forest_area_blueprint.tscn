@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c74djwhbdu7sb"]
+
+[ext_resource type="Material" uid="uid://dwgp7vmlnnt4t" path="res://tools/grid_mat.tres" id="1_t2swq"]
+[ext_resource type="Script" path="res://scripts/managers/waypoints_manager.gd" id="2_nr0hb"]
+[ext_resource type="PackedScene" uid="uid://qtyetc45l4sr" path="res://scenes/enemies/fleshman_enemy.tscn" id="3_d65j3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_41lo1"]
+material = ExtResource("1_t2swq")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dhiu"]
+size = Vector3(0.3, 5, 0.3)
+
+[node name="ForestAreaBlueprint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_41lo1")
+
+[node name="WaypoitsManager" type="Node" parent="." node_paths=PackedStringArray("waypoints") groups=["waypoint_manager"]]
+script = ExtResource("2_nr0hb")
+waypoints = [NodePath("Waypoint001"), NodePath("Waypoint002"), NodePath("Waypoint003"), NodePath("Waypoint004"), NodePath("Waypoint005"), NodePath("Waypoint006"), NodePath("Waypoint007"), NodePath("Waypoint008"), NodePath("Waypoint009"), NodePath("Waypoint010")]
+
+[node name="Waypoint001" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint002" type="MeshInstance3D" parent="WaypoitsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.5439)
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint003" type="MeshInstance3D" parent="WaypoitsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6151, 0, 23.1037)
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint004" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint005" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint006" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint007" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint008" type="MeshInstance3D" parent="WaypoitsManager"]
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint009" type="MeshInstance3D" parent="WaypoitsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7826, 0, 13.6562)
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Waypoint010" type="MeshInstance3D" parent="WaypoitsManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6672, 0, -17.8627)
+mesh = SubResource("BoxMesh_7dhiu")
+
+[node name="Fleshman" parent="." instance=ExtResource("3_d65j3")]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://85wl8t821pag"]
+
+[ext_resource type="Script" path="res://scripts/components/player_detection.gd" id="1_4fdxe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mq8oj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a2xbp"]
+radius = 8.0
+
+[node name="PlayerDetection" type="Node3D"]
+script = ExtResource("1_4fdxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.463053, 0, 0, 0, 0.543558, 0, 0, 0, 0.303042, 0, 1.94513, 0)
+mesh = SubResource("CylinderMesh_mq8oj")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_a2xbp")

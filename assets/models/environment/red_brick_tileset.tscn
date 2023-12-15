@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmuygheneljhe"]
+
+[ext_resource type="PackedScene" uid="uid://c5bqphiniy48g" path="res://assets/meshes/Environment/red_brick_tileset.blend" id="1_ap2nw"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_x1cg4"]
+
+[node name="RedBrickTileset" instance=ExtResource("1_ap2nw")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="wall-navmesh" index="1"]
+navigation_mesh = SubResource("NavigationMesh_x1cg4")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="corner-in" index="1"]
+navigation_mesh = SubResource("NavigationMesh_x1cg4")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="florr-navmesh" index="1"]
+navigation_mesh = SubResource("NavigationMesh_x1cg4")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="corner-navmesh-out" index="1"]
+navigation_mesh = SubResource("NavigationMesh_x1cg4")

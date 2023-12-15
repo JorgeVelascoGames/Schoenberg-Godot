@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfar6ppq2vylu"]
+
+[ext_resource type="Script" path="res://scripts/player/equipment.gd" id="1_8sn7n"]
+
+[node name="Equipment" type="Node"]
+script = ExtResource("1_8sn7n")
+
+[node name="SwapCooldown" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true

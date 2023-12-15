@@ -1,0 +1,267 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4cotu17p3u3v"]
+
+[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_13yla"]
+[ext_resource type="Script" path="res://scripts/menu/settings_menu_canvas.gd" id="2_jcfsa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxakt"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.407843, 0.407843, 0.407843, 0.6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd5w8"]
+resource_local_to_scene = true
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi6wl"]
+bg_color = Color(0.305882, 0.305882, 0.305882, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 23
+corner_radius_top_right = 23
+corner_radius_bottom_right = 23
+corner_radius_bottom_left = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_awpsr"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_84pah"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_l1c1e"]
+font_size = 25
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_13yla")
+
+[node name="MainMenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="MainMenuCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fxakt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -122.0
+offset_right = 35.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.52
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainMenuCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="MainMenuCanvas/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainMenuCanvas/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
+
+[node name="GameNameLabel" type="Label" parent="MainMenuCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.5
+offset_right = 86.5
+offset_bottom = 79.0
+grow_horizontal = 2
+text = "Nombre del juego"
+label_settings = SubResource("LabelSettings_wd5w8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsMenuCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("2_jcfsa")
+
+[node name="Panel" type="Panel" parent="SettingsMenuCanvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = -254.0
+offset_right = 303.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gi6wl")
+
+[node name="SettingsLabel" type="Label" parent="SettingsMenuCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "Settings
+"
+label_settings = SubResource("LabelSettings_awpsr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="VBoxContainer" parent="SettingsMenuCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 81.0
+offset_right = -25.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoSection" type="Label" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+text = "Video"
+label_settings = SubResource("LabelSettings_84pah")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullScreen" type="HBoxContainer" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+
+[node name="FullScreenLabel" type="Label" parent="SettingsMenuCanvas/Panel/Settings/FullScreen"]
+custom_minimum_size = Vector2(158.54, 49.855)
+layout_mode = 2
+text = "Full screen"
+label_settings = SubResource("LabelSettings_l1c1e")
+vertical_alignment = 1
+
+[node name="FSCheckbox" type="CheckBox" parent="SettingsMenuCanvas/Panel/Settings/FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="WindowSize" type="HBoxContainer" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+
+[node name="FullScreenLabel" type="Label" parent="SettingsMenuCanvas/Panel/Settings/WindowSize"]
+custom_minimum_size = Vector2(158.54, 49.855)
+layout_mode = 2
+text = "Window size"
+label_settings = SubResource("LabelSettings_l1c1e")
+vertical_alignment = 1
+
+[node name="WindowSizeOptions" type="OptionButton" parent="SettingsMenuCanvas/Panel/Settings/WindowSize"]
+custom_minimum_size = Vector2(275.245, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+item_count = 4
+popup/item_0/text = "640 x 360"
+popup/item_0/id = 0
+popup/item_1/text = "1280 x 720"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1080"
+popup/item_2/id = 2
+popup/item_3/text = "3840 x 2160"
+popup/item_3/id = 3
+
+[node name="SoundSection" type="Label" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+text = "Sound"
+label_settings = SubResource("LabelSettings_84pah")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GeneralVolume" type="HBoxContainer" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+
+[node name="GeneralLabel" type="Label" parent="SettingsMenuCanvas/Panel/Settings/GeneralVolume"]
+custom_minimum_size = Vector2(158.54, 49.855)
+layout_mode = 2
+text = "General
+"
+label_settings = SubResource("LabelSettings_l1c1e")
+vertical_alignment = 1
+
+[node name="GeneralSlider" type="HSlider" parent="SettingsMenuCanvas/Panel/Settings/GeneralVolume"]
+custom_minimum_size = Vector2(275.245, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -50.0
+max_value = 5.0
+value = -10.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+
+[node name="SFCLabel" type="Label" parent="SettingsMenuCanvas/Panel/Settings/SFXVolume"]
+custom_minimum_size = Vector2(158.54, 49.855)
+layout_mode = 2
+text = "SFX
+"
+label_settings = SubResource("LabelSettings_l1c1e")
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="SettingsMenuCanvas/Panel/Settings/SFXVolume"]
+custom_minimum_size = Vector2(275.245, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -50.0
+max_value = 5.0
+value = -10.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="SettingsMenuCanvas/Panel/Settings"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="SettingsMenuCanvas/Panel/Settings/MusicVolume"]
+custom_minimum_size = Vector2(158.54, 49.855)
+layout_mode = 2
+text = "Music
+"
+label_settings = SubResource("LabelSettings_l1c1e")
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMenuCanvas/Panel/Settings/MusicVolume"]
+custom_minimum_size = Vector2(275.245, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -50.0
+max_value = 5.0
+value = -10.0
+
+[node name="Button" type="Button" parent="SettingsMenuCanvas/Panel/Settings"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Save and close
+"
+
+[connection signal="pressed" from="MainMenuCanvas/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="SettingsMenuCanvas/Panel/Settings/FullScreen/FSCheckbox" to="SettingsMenuCanvas" method="_on_fs_checkbox_toggled"]
+[connection signal="item_selected" from="SettingsMenuCanvas/Panel/Settings/WindowSize/WindowSizeOptions" to="SettingsMenuCanvas" method="_on_window_size_options_item_selected"]
+[connection signal="value_changed" from="SettingsMenuCanvas/Panel/Settings/GeneralVolume/GeneralSlider" to="SettingsMenuCanvas" method="_on_general_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenuCanvas/Panel/Settings/SFXVolume/SFXSlider" to="SettingsMenuCanvas" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenuCanvas/Panel/Settings/MusicVolume/MusicSlider" to="SettingsMenuCanvas" method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenuCanvas/Panel/Settings/Button" to="SettingsMenuCanvas" method="_on_button_pressed"]

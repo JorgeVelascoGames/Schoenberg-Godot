@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://cev16e0pss1ob"]
+
+[ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="1_0q85k"]
+[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/enviroments/forest/campfire.tscn" id="3_kc4cr"]
+[ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="3_w5yo8"]
+[ext_resource type="Texture2D" uid="uid://drlfd3h4aofdr" path="res://assets/textures/sky_night.png" id="4_algk4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7ikgd"]
+panorama = ExtResource("4_algk4")
+
+[sub_resource type="Sky" id="Sky_ulfe5"]
+sky_material = SubResource("PanoramaSkyMaterial_7ikgd")
+
+[sub_resource type="Environment" id="Environment_6gci7"]
+background_mode = 2
+sky = SubResource("Sky_ulfe5")
+ambient_light_source = 3
+fog_enabled = true
+fog_light_color = Color(0.188235, 0.207843, 0.239216, 1)
+fog_density = 0.04
+fog_sky_affect = 0.8
+volumetric_fog_albedo = Color(0.168627, 0.168627, 0.168627, 1)
+volumetric_fog_emission_energy = 68.62
+volumetric_fog_anisotropy = 0.15
+volumetric_fog_sky_affect = 0.33
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nk4fl"]
+cell_height = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bn5ug"]
+material = ExtResource("3_w5yo8")
+size = Vector2(1000, 1000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vqkbp"]
+data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
+
+[node name="ForestMap" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0q85k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32245, 0)
+
+[node name="ForestWorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6gci7")
+
+[node name="StaticEnvironment" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_nk4fl")
+
+[node name="Ground" type="MeshInstance3D" parent="StaticEnvironment"]
+mesh = SubResource("PlaneMesh_bn5ug")
+skeleton = NodePath("../..")
+
+[node name="campfire" parent="StaticEnvironment/Ground" instance=ExtResource("3_kc4cr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.11522)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticEnvironment/Ground"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticEnvironment/Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vqkbp")

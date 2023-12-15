@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dy2fcubpir2rw"]
+
+[ext_resource type="Texture2D" uid="uid://dia1vlmjlkvpg" path="res://assets/meshes/fleshman_flesh_and_blood_lowres_tex.png" id="1_bl0l3"]
+
+[resource]
+albedo_texture = ExtResource("1_bl0l3")

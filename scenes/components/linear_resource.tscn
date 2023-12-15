@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwhpskl2n7cyk"]
+
+[ext_resource type="Script" path="res://scripts/components/linear_resource.gd" id="1_lve1i"]
+
+[node name="LinearResource" type="Node"]
+script = ExtResource("1_lve1i")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

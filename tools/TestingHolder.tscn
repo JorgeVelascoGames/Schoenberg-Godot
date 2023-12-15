@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://01unuqdc8eem"]
+
+[ext_resource type="Script" path="res://tools/testing_holder.gd" id="1_lbcx6"]
+
+[node name="TestingHolder" type="Node"]
+script = ExtResource("1_lbcx6")

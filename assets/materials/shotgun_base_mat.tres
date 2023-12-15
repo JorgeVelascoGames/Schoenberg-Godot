@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bo8osiclv0du4"]
+
+[ext_resource type="Texture2D" uid="uid://dew8ubhlmdc0o" path="res://assets/meshes/Shotgun_wood_plain_lowres_tex.png" id="2_erkbw"]
+[ext_resource type="Texture2D" uid="uid://bq5nrolwl0ata" path="res://assets/meshes/wood_plain_lowres_tex_n.png" id="2_yk8ht"]
+
+[resource]
+albedo_texture = ExtResource("2_erkbw")
+normal_enabled = true
+normal_texture = ExtResource("2_yk8ht")
+uv1_scale = Vector3(1.45, 1.45, 1.45)

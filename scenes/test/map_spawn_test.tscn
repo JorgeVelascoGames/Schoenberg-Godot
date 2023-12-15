@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckilgo6bsriah"]
+
+[ext_resource type="Script" path="res://scripts/functionality/map_generation/map_generator.gd" id="1_najqd"]
+[ext_resource type="PackedScene" uid="uid://dmaoh6m26n6dh" path="res://scenes/test/test_fixed_location.tscn" id="2_6mcka"]
+[ext_resource type="Script" path="res://scripts/functionality/map_generation/spawn_point.gd" id="2_pcjup"]
+[ext_resource type="PackedScene" uid="uid://cj65thg0rrnwm" path="res://scenes/test/test_general_location.tscn" id="3_55gpf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c8sv"]
+sky_horizon_color = Color(0.700171, 0.734088, 0.798284, 1)
+ground_bottom_color = Color(0.415686, 0.482353, 0.643137, 1)
+ground_horizon_color = Color(0.700171, 0.734088, 0.798284, 1)
+
+[sub_resource type="Sky" id="Sky_xfq0a"]
+sky_material = SubResource("ProceduralSkyMaterial_5c8sv")
+
+[sub_resource type="Environment" id="Environment_jkt5j"]
+background_mode = 2
+sky = SubResource("Sky_xfq0a")
+
+[node name="MapSpawnTest" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkt5j")
+
+[node name="MapGenerator" type="Node3D" parent="." node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_najqd")
+spawn_points = [NodePath("../SpawnPoints/SpawnPoint"), NodePath("../SpawnPoints/SpawnPoint2"), NodePath("../SpawnPoints/SpawnPoint3"), NodePath("../SpawnPoints/SpawnPoint4"), NodePath("../SpawnPoints/SpawnPoint5")]
+fixed_locations = Array[PackedScene]([ExtResource("2_6mcka")])
+general_area = ExtResource("3_55gpf")
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnPoint" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+script = ExtResource("2_pcjup")
+
+[node name="SpawnPoint2" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+script = ExtResource("2_pcjup")
+
+[node name="SpawnPoint3" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+script = ExtResource("2_pcjup")
+
+[node name="SpawnPoint4" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
+script = ExtResource("2_pcjup")
+
+[node name="SpawnPoint5" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 20, 0)
+script = ExtResource("2_pcjup")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.171001, -0.985271, 0, 0.985271, 0.171001, 1, 7.47468e-09, -4.30676e-08, -10.7592, 8.92023, 9.04136e-08)

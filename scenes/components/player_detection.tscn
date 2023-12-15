@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://85wl8t821pag"]
+
+[ext_resource type="Script" path="res://scripts/components/player_detection.gd" id="1_4fdxe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mq8oj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a2xbp"]
+resource_local_to_scene = true
+radius = 40.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_56qn7"]
+resource_local_to_scene = true
+radius = 28.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_srper"]
+radius = 13.0
+
+[node name="PlayerDetection" type="Node3D"]
+script = ExtResource("1_4fdxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.463053, 0, 0, 0, 0.543558, 0, 0, 0, 0.303042, 0, 1.94513, 0)
+mesh = SubResource("CylinderMesh_mq8oj")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="HighRange" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HighRange"]
+shape = SubResource("SphereShape3D_a2xbp")
+
+[node name="MidRange" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MidRange"]
+shape = SubResource("SphereShape3D_56qn7")
+
+[node name="LowRange" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowRange"]
+shape = SubResource("SphereShape3D_srper")
+
+[connection signal="body_entered" from="HighRange" to="." method="_on_high_range_body_entered"]
+[connection signal="body_exited" from="HighRange" to="." method="_on_high_range_body_exited"]
+[connection signal="body_entered" from="MidRange" to="." method="_on_mid_range_body_entered"]
+[connection signal="body_exited" from="MidRange" to="." method="_on_mid_range_body_exited"]
+[connection signal="body_entered" from="LowRange" to="." method="_on_low_range_body_entered"]
+[connection signal="body_exited" from="LowRange" to="." method="_on_low_range_body_exited"]

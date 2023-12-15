@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://85wl8t821pag"]
+
+[ext_resource type="Script" path="res://scripts/components/player_detection.gd" id="1_4fdxe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mq8oj"]
+
+[node name="PlayerDetection" type="Node3D"]
+script = ExtResource("1_4fdxe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.463053, 0, 0, 0, 0.543558, 0, 0, 0, 0.303042, 0, 1.94513, 0)
+mesh = SubResource("CylinderMesh_mq8oj")
+
+[node name="VisionSight" type="RayCast3D" parent="."]

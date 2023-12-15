@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmaoh6m26n6dh"]
+
+[ext_resource type="Script" path="res://scripts/functionality/map_generation/area_generation.gd" id="1_hg26d"]
+[ext_resource type="PackedScene" uid="uid://bpqosgs77qeli" path="res://scenes/test/test_area_3.tscn" id="2_23pka"]
+[ext_resource type="PackedScene" uid="uid://du2w14b3iuiw6" path="res://scenes/test/test_area_4.tscn" id="3_prbiw"]
+
+[node name="TestFixedLocation" type="Node3D"]
+script = ExtResource("1_hg26d")
+option_areas = Array[PackedScene]([ExtResource("2_23pka"), ExtResource("3_prbiw")])
