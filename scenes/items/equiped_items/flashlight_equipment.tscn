@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dm8n3thtjx0cn"]
+
+[node name="FlashlightEquipment" type="SpotLight3D"]
+light_energy = 2.0
+light_volumetric_fog_energy = 0.1
+spot_range = 15.0
+spot_angle = 35.0

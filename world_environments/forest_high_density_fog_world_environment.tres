@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://k8c0oyyjh4ff"]
+
+[ext_resource type="Texture2D" uid="uid://drlfd3h4aofdr" path="res://assets/textures/sky_night.png" id="1_w3758"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vi7qr"]
+panorama = ExtResource("1_w3758")
+
+[sub_resource type="Sky" id="Sky_ihrqo"]
+sky_material = SubResource("PanoramaSkyMaterial_vi7qr")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_ihrqo")
+ambient_light_source = 3
+reflected_light_source = 2
+ssr_enabled = true
+fog_light_energy = 0.38
+fog_density = 0.1323
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.13
+volumetric_fog_emission = Color(0.156863, 0.156863, 0.156863, 1)
+volumetric_fog_emission_energy = 0.5
+volumetric_fog_ambient_inject = 1.4
+volumetric_fog_sky_affect = 0.99

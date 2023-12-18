@@ -89,7 +89,6 @@ transform = Transform3D(1, 0, 0, 0, 0.968614, -0.248572, 0, 0.248572, 0.968614, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223013, 0, 7.00601)
 
 [node name="OmniLight3D" parent="Campfires/campfire4" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -97,7 +96,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31033, 0, -8.18897)
 
 [node name="OmniLight3D" parent="Campfires/campfire3" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -105,7 +103,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2556, 0, 42.5069)
 
 [node name="OmniLight3D" parent="Campfires/campfire8" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -113,7 +110,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4502, 0, 42.6209)
 
 [node name="OmniLight3D" parent="Campfires/campfire7" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -121,7 +117,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.336, 0, 43.2988)
 
 [node name="OmniLight3D" parent="Campfires/campfire6" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -129,7 +124,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3328, 0, 41.0366)
 
 [node name="OmniLight3D" parent="Campfires/campfire5" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
@@ -137,7 +131,6 @@ omni_range = 9.01413
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305535, 0, 26.2139)
 
 [node name="OmniLight3D" parent="Campfires/campfire2" index="3"]
-shadow_enabled = true
 distance_fade_enabled = true
 omni_range = 9.01413
 
