@@ -113,6 +113,11 @@ swap_item={
 3d_physics/layer_3="world"
 3d_physics/layer_4="interactables"
 
+[navigation]
+
+3d/default_cell_height=0.0
+3d/default_edge_connection_margin=1.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://j6u7335vqtv"]
+
+[ext_resource type="NavigationMesh" uid="uid://btu22lsqqpnxh" path="res://game_resources/navigation_meshes/forest_navmesh.tres" id="1_6j2rr"]
+
+[node name="ForestAreaGeneric1" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("1_6j2rr")

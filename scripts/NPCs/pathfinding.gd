@@ -30,4 +30,4 @@ func get_new_waypoint() -> Vector3:
 
 
 func request_random_waypoint() -> Vector3:
-	return get_tree().get_nodes_in_group(waypoints_node_group_name).pick_random()
+	return get_tree().get_nodes_in_group(waypoints_node_group_name).pick_random().global_position

@@ -79,6 +79,8 @@ func is_player_found() -> bool:
 
 
 func is_player_on_sight() -> bool:
+	if player == null:
+		return false
 	if not looking_for_player:
 		return false
 	#is player on sight angle?

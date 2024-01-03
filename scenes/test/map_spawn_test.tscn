@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckilgo6bsriah"]
+[gd_scene load_steps=9 format=3 uid="uid://ckilgo6bsriah"]
 
 [ext_resource type="Script" path="res://scripts/functionality/map_generation/map_generator.gd" id="1_najqd"]
 [ext_resource type="PackedScene" uid="uid://dmaoh6m26n6dh" path="res://scenes/test/test_fixed_location.tscn" id="2_6mcka"]
@@ -16,6 +16,8 @@ sky_material = SubResource("ProceduralSkyMaterial_5c8sv")
 [sub_resource type="Environment" id="Environment_jkt5j"]
 background_mode = 2
 sky = SubResource("Sky_xfq0a")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_41n5t"]
 
 [node name="MapSpawnTest" type="Node3D"]
 
@@ -56,3 +58,6 @@ script = ExtResource("2_pcjup")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.171001, -0.985271, 0, 0.985271, 0.171001, 1, 7.47468e-09, -4.30676e-08, -10.7592, 8.92023, 9.04136e-08)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_41n5t")
