@@ -1,8 +1,8 @@
 extends Collectable
 
-class_name Item
+class_name Item #This class is a blueprint for all the items to inherit
 
-var source: ItemResource
+var source: ItemResource #This is a resource with the data for the item to edit in the project files
 
 var time_to_prepare: float = 1.0
 var cooldown: float = 1.0
