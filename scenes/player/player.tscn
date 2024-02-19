@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dxwqns1tt5ci6"]
+[gd_scene load_steps=23 format=3 uid="uid://dxwqns1tt5ci6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_oyen4"]
 [ext_resource type="Script" path="res://scripts/player/items/item_manager.gd" id="2_6kcbb"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cluwt4tdjsuao" path="res://scenes/components/health.tscn" id="10_68lia"]
 [ext_resource type="PackedScene" uid="uid://dwhpskl2n7cyk" path="res://scenes/components/linear_resource.tscn" id="13_6kjbc"]
 [ext_resource type="PackedScene" uid="uid://cfar6ppq2vylu" path="res://scenes/components/equipment.tscn" id="14_s8lw7"]
+[ext_resource type="Script" path="res://scripts/player/states/opening.gd" id="15_kqbh3"]
 [ext_resource type="PackedScene" uid="uid://bq85mkwqpbuct" path="res://scenes/items/shotgun_model.tscn" id="15_ld5cg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ik5j"]
@@ -33,6 +34,7 @@ height = 1.39393
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.735789, 0)
 collision_mask = 6
+wall_min_slide_angle = 3.14159
 script = ExtResource("1_oyen4")
 air_acceleration = 111
 speed = 3.0
@@ -126,9 +128,16 @@ one_shot = true
 [node name="CooldownTimer" type="Timer" parent="StateMachine/UsingItem"]
 one_shot = true
 
+[node name="Opening" type="Node" parent="StateMachine"]
+script = ExtResource("15_kqbh3")
+
+[node name="Timer" type="Timer" parent="StateMachine/Opening"]
+one_shot = true
+
 [node name="RayCasts" type="Node3D" parent="."]
 
 [node name="RayCastGroundDetector" type="RayCast3D" parent="RayCasts"]
+collision_mask = 4
 
 [node name="RayCastCrouch" type="RayCast3D" parent="RayCasts"]
 target_position = Vector3(0, 1.3, 0)
@@ -206,6 +215,7 @@ vertical_alignment = 1
 current_health_state = 1
 
 [node name="HurtBox" type="Area3D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -219,7 +229,7 @@ regeneration_per_second = 7
 
 [node name="Equipment" parent="." instance=ExtResource("14_s8lw7")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="MinimunLight" type="OmniLight3D" parent="."]
 light_color = Color(0.305882, 0.305882, 0.305882, 1)
 light_energy = 0.5
 light_indirect_energy = 0.0

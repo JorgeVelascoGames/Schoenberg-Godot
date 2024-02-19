@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg60vtsxclsy5"]
+
+[ext_resource type="Material" uid="uid://dwgp7vmlnnt4t" path="res://tools/grid_mat.tres" id="1_rjcwu"]
+[ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="2_rq0mc"]
+[ext_resource type="PackedScene" uid="uid://mhbkjx6yu8is" path="res://scenes/interacts/chest.tscn" id="3_umjxj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_em4hs"]
+sky_horizon_color = Color(0.700171, 0.734088, 0.798284, 1)
+ground_bottom_color = Color(0.415686, 0.482353, 0.643137, 1)
+ground_horizon_color = Color(0.700171, 0.734088, 0.798284, 1)
+
+[sub_resource type="Sky" id="Sky_4fun4"]
+sky_material = SubResource("ProceduralSkyMaterial_em4hs")
+
+[sub_resource type="Environment" id="Environment_q7c1k"]
+background_mode = 2
+sky = SubResource("Sky_4fun4")
+
+[node name="TestingGrounds" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q7c1k")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = ExtResource("1_rjcwu")
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(15, 1, 15)
+
+[node name="Player" parent="." instance=ExtResource("2_rq0mc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17148, 0)
+
+[node name="Chest" parent="." instance=ExtResource("3_umjxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08206, 2.99317)
+collision_layer = 12
+collision_mask = 4

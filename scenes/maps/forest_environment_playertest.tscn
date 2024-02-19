@@ -59,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.7312, 9.44266, 103.735)
 [node name="ForestWorldEnvironment" type="WorldEnvironment" parent="." index="7"]
 environment = SubResource("Environment_drh2g")
 
-[node name="cabin" parent="." index="8"]
+[node name="cabin" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46278, 0, 19.7617)
 
 [node name="StaticBody3D" parent="cabin" index="0"]
@@ -74,13 +74,13 @@ collision_mask = 4
 collision_layer = 4
 collision_mask = 4
 
-[node name="stone_pilar" parent="." index="13"]
+[node name="stone_pilar" parent="." index="14"]
 transform = Transform3D(0.856716, 0, 0.241095, 0, 1, 0, -0.74177, 0, 0.278455, 9.42387, 0, -8.15947)
 
-[node name="Log" parent="." index="14"]
+[node name="Log" parent="." index="15"]
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -5.64299, 0, 38.0977)
 
-[node name="rock" parent="." index="15"]
+[node name="rock" parent="." index="16"]
 transform = Transform3D(1, 0, 0, 0, 0.968614, -0.248572, 0, 0.248572, 0.968614, -22.1878, 0.250008, 38.5308)
 
 [node name="Campfires" type="Node" parent="." index="17"]
@@ -146,7 +146,7 @@ collision_mask = 0
 collision_layer = 4
 collision_mask = 4
 
-[node name="ground_tile_08" parent="." index="25"]
+[node name="ground_tile_08" parent="." index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 40.5779, 0)
 
 [editable path="Campfires/campfire4"]

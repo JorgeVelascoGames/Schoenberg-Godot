@@ -195,3 +195,7 @@ func interact():
 
 func _on_health_lost_health_state() -> void:
 	got_hit()
+
+
+func start_long_interaction(interactable: Interactable) -> void:
+	state_machine.transition_to("Opening", {"Chest": interactable})

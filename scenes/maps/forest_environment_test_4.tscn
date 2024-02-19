@@ -1,50 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk301xonpj4de"]
+[gd_scene load_steps=9 format=3 uid="uid://bk301xonpj4de"]
 
 [ext_resource type="PackedScene" uid="uid://bv6pv14bsycw6" path="res://assets/meshes/Environment/forest_environment.blend" id="1_y00fa"]
 [ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="2_1jtcq"]
-[ext_resource type="Environment" uid="uid://k8c0oyyjh4ff" path="res://world_environments/forest_high_density_fog_world_environment.tres" id="2_5walw"]
 [ext_resource type="PackedScene" uid="uid://bdpyrfe35wfu1" path="res://scenes/models/fleshman.tscn" id="3_ds2hy"]
 [ext_resource type="Material" uid="uid://dwgp7vmlnnt4t" path="res://tools/grid_mat.tres" id="3_yopgg"]
 [ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="4_y58tg"]
 [ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/enviroments/forest/campfire.tscn" id="5_ff5gi"]
+[ext_resource type="PackedScene" uid="uid://7wu6f1hlg7tk" path="res://scenes/maps/map_elements/world_enviroment_flat.tscn" id="8_gmk74"]
+[ext_resource type="PackedScene" uid="uid://dj1m68227f2il" path="res://scenes/maps/map_elements/fire_tall.tscn" id="8_rxijb"]
 
 [node name="forest_environment" instance=ExtResource("1_y00fa")]
 
-[node name="ForestWorldEnvironment" type="WorldEnvironment" parent="." index="0"]
-environment = ExtResource("2_5walw")
-
-[node name="Fleshman" parent="." index="1" instance=ExtResource("3_ds2hy")]
+[node name="Fleshman" parent="." index="0" instance=ExtResource("3_ds2hy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1694, 0.536205, -93.9267)
 
-[node name="Fleshman2" parent="." index="2" instance=ExtResource("3_ds2hy")]
+[node name="Fleshman2" parent="." index="1" instance=ExtResource("3_ds2hy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4619, 0.536205, -90.3628)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
 transform = Transform3D(0.138973, 0.620091, -0.772123, -0.0506946, 0.783121, 0.6198, 0.988998, -0.0469928, 0.140268, 4.97601, 32.6846, 3.44563e-07)
 light_color = Color(0.564706, 0.584314, 0.611765, 1)
 light_energy = 0.1
 editor_only = true
 directional_shadow_mode = 0
 
-[node name="Player" parent="." index="4" instance=ExtResource("2_1jtcq")]
+[node name="Player" parent="." index="3" instance=ExtResource("2_1jtcq")]
 transform = Transform3D(0.0990245, 0, -0.995085, 0, 1, 0, 0.995085, 0, 0.0990245, 14.5775, 9.21947, -101.451)
 
-[node name="pinetree" parent="." index="6"]
+[node name="pinetree" parent="." index="5"]
 transform = Transform3D(0.743551, 0, 0.74355, 0, 1.06932, 0, -0.74355, 0, 0.743551, 64.1221, 0, -80.9725)
 
-[node name="cabin" parent="." index="10"]
+[node name="cabin" parent="." index="9"]
 transform = Transform3D(-0.0749265, 0, 0.997189, 0, 1, 0, -0.997189, 0, -0.0749265, 50.9991, 0, -115.878)
 
-[node name="tile_wall_hole" parent="." index="12"]
+[node name="tile_wall_hole" parent="." index="11"]
 transform = Transform3D(0.0636607, 0, -1.23647, 0, 1.27454, 0, 0.254572, 0, 0.309202, 61.5238, 0.574605, -91.1722)
 
-[node name="stone_pilar" parent="." index="15"]
+[node name="stone_pilar" parent="." index="14"]
 transform = Transform3D(1.13322, 0, 0, 0, 0.996953, 0.0287319, 0, -0.0780067, 0.367203, 49.247, -0.372488, -78.6673)
 
-[node name="Log" parent="." index="16"]
-transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 50.4609, 0, -92.742)
-
-[node name="rock_hole" parent="." index="18"]
+[node name="rock_hole" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4241, 0.534393, -102.018)
 
 [node name="ground_tile_01" parent="." index="19"]
@@ -103,15 +98,23 @@ surface_material_override/0 = ExtResource("3_yopgg")
 collision_layer = 4
 collision_mask = 4
 
-[node name="ground_tile_09" parent="." index="27"]
+[node name="campfire2" parent="." index="27" instance=ExtResource("5_ff5gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.802, -0.0834579, -101.317)
+
+[node name="campfire3" parent="." index="28" instance=ExtResource("5_ff5gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54101, 6.61318, -101.317)
+
+[node name="ground_tile_09" parent="." index="29"]
 surface_material_override/0 = ExtResource("3_yopgg")
 
 [node name="StaticBody3D" parent="ground_tile_09" index="0"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="campfire2" parent="." index="28" instance=ExtResource("5_ff5gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.802, -0.0834579, -101.317)
+[node name="FireTall" parent="." index="30" instance=ExtResource("8_rxijb")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 40.4222, 0.511213, -87.7816)
 
-[node name="campfire3" parent="." index="29" instance=ExtResource("5_ff5gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54101, 6.61318, -101.317)
+[node name="FireTall2" parent="." index="31" instance=ExtResource("8_rxijb")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 157.007, 0.511208, -57.7763)
+
+[node name="WorldEnviromentFlat" parent="." index="32" instance=ExtResource("8_gmk74")]

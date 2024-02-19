@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgsnpmrb6e0nt"]
+
+[ext_resource type="Environment" uid="uid://k8c0oyyjh4ff" path="res://world_environments/forest_high_density_fog_world_environment.tres" id="1_vwjdp"]
+
+[node name="ForestWorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_vwjdp")

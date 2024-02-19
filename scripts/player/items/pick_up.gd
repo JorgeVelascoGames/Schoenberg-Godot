@@ -8,11 +8,6 @@ class_name PickUp
 var pick_up: Collectable
 
 
-func randomize_pickup() -> Collectable:
-	var shotgun: Shotgun
-	return shotgun
-
-
 func initialize_pick_up(pick_up: Collectable):
 	self.pick_up = pick_up
 	active_model()
@@ -25,10 +20,10 @@ func active_model():
 	
 	match pick_up.collectable_name:
 		"Shotgun":
-			shotgun.show()
+			shotgun.visible = true
 			shotgun.disabled = false
 		"Medkit":
-			medkit.show()
+			medkit.visible = true
 			medkit.disabled = false
 
 

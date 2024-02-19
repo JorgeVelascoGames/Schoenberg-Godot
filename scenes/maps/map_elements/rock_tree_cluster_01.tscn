@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cearq2nq8fxum"]
+
+[ext_resource type="PackedScene" uid="uid://dbpceaxs4ym66" path="res://scenes/maps/map_elements/rock.tscn" id="1_dkikr"]
+[ext_resource type="PackedScene" uid="uid://ceor35t70dqc" path="res://scenes/maps/map_elements/pinetree.tscn" id="3_ggeng"]
+[ext_resource type="PackedScene" uid="uid://yiwt15yst6k8" path="res://scenes/maps/map_elements/log.tscn" id="4_wylvh"]
+
+[node name="RockTreeCluster01" type="Node3D"]
+
+[node name="rock" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(1, 0, 0, 0, 0.87835, 0.478017, 0, -0.478017, 0.87835, 2.03053, 0, 0)
+
+[node name="rock5" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(0.210783, 0.885954, 0.622571, -1.01819, 0.183408, 0.128883, 0, -0.492379, 1.16822, 0.175099, -0.166371, -0.844703)
+
+[node name="rock2" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(0.897046, 0, 0, 0, 0.124226, 1.24503, 0, -0.869698, 0.177837, 2.03053, 0, 1.62886)
+
+[node name="rock6" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(0.692847, 1.3253, 0.0122097, -0.155776, 0.409906, 1.21367, 0.548078, -1.55886, 0.329518, -2.54668, 0.14633, 5.09855)
+
+[node name="rock8" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(-0.219339, 0.714599, -0.663808, 0.869817, 0.180198, -0.16739, 0, -0.478209, -1.05502, -4.22451, 0.26575, 2.66586)
+
+[node name="rock7" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(0.897046, 0, 0, 0, 0.859286, 0.261762, 0, -0.182851, 1.23012, -7.63168, -0.0858354, 1.76164)
+
+[node name="rock9" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(0.275549, -0.817743, -0.249107, 0.853677, 0.26395, 0.0804066, 0, -0.182851, 1.23012, -7.63168, -0.334347, -0.831935)
+
+[node name="rock3" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(-0.0132918, 0.124212, 1.24489, -0.896948, -0.00184071, -0.0184481, 9.10917e-09, -0.869698, 0.177837, 0.248745, 0, 2.54186)
+
+[node name="rock4" parent="." instance=ExtResource("1_dkikr")]
+transform = Transform3D(-0.550024, 0.0419521, 0.420458, -0.302941, -0.0761689, -0.763389, 6.37642e-09, -0.608789, 0.124486, 0.212493, 0, 3.52376)
+
+[node name="pinetree" parent="." instance=ExtResource("3_ggeng")]
+transform = Transform3D(0.743551, 0, 0.74355, 0, 1.06932, 0, -0.74355, 0, 0.743551, -0.286759, 0, 0.507446)
+
+[node name="pinetree3" parent="." instance=ExtResource("3_ggeng")]
+transform = Transform3D(0.948604, -0.0665571, 0.613364, 0.0603327, 0.90102, 0.0603326, -0.616065, -0.0142443, 0.950353, -3.6769, 0, -0.189926)
+
+[node name="pinetree4" parent="." instance=ExtResource("3_ggeng")]
+transform = Transform3D(0.0413907, -0.0995059, -1.12062, 0.0608768, 0.697538, -0.157451, 1.13031, -0.0339245, 0.0495157, -6.2291, 0, 0.902676)
+
+[node name="pinetree2" parent="." instance=ExtResource("3_ggeng")]
+transform = Transform3D(0.743551, 0, 0.74355, 0.0186985, 0.954963, -0.0186985, -0.743315, 0.0240226, 0.743316, -0.86469, -0.171333, 3.87198)
+
+[node name="pinetree5" parent="." instance=ExtResource("3_ggeng")]
+transform = Transform3D(0.742596, 0, 0.744505, 0.0186744, 0.886028, -0.0187225, -0.74236, 0.0222885, 0.74427, -4.44773, -0.171333, 3.71946)
+
+[node name="Log" parent="." instance=ExtResource("4_wylvh")]
+transform = Transform3D(-0.129877, 0.675471, -0.725859, -0.986548, -0.0147419, 0.162803, 0.099268, 0.73724, 0.668299, -5.30573, -0.176825, 4.77178)
+
+[node name="Log2" parent="." instance=ExtResource("4_wylvh")]
+transform = Transform3D(-0.0394327, 0.973381, 0.175499, 1.22983, -0.0372943, 0.495087, 0.576929, 0.146029, -1.04337, -2.61589, 0.536369, -2.39883)
+
+[node name="Log3" parent="." instance=ExtResource("4_wylvh")]
+transform = Transform3D(0.307375, 0.413961, -0.563959, 0.66562, -0.0875052, 0.407622, 0.158486, -0.435345, -0.61819, -6.43253, 0.793766, -2.23989)

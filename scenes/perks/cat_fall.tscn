@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://btxxn8jjvaurm"]
+
+[ext_resource type="Script" path="res://scripts/perks/cat_fall.gd" id="1_qyg08"]
+
+[node name="CatFall" type="Node"]
+script = ExtResource("1_qyg08")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

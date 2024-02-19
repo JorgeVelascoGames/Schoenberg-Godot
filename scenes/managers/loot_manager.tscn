@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jxx8si7yyw1l"]
+
+[ext_resource type="Script" path="res://scripts/managers/loot_manager.gd" id="1_bji86"]
+
+[node name="LootManager" type="Node"]
+script = ExtResource("1_bji86")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgtxhiq3ccyjt"]
+
+[ext_resource type="Texture2D" uid="uid://bquuhq6fsbiqw" path="res://assets/meshes/Environment/foliage_lowres.png" id="1_augqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43qx4"]
+resource_name = "foliage"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_augqp")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x4o0h"]
+_surfaces = [{
+"aabb": AABB(-0.999781, -9.1542e-10, -0.877983, 1.99956, 2, 1.75597),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"name": "foliage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(72, 189, 0, 0, 0, 0, 0, 0, 182, 66, 0, 0, 254, 255, 0, 0, 72, 189, 254, 255, 0, 0, 0, 0, 182, 66, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 13, 131, 0, 0, 255, 255, 0, 0, 241, 124, 0, 0, 0, 0, 255, 255, 13, 131, 0, 0, 255, 255, 255, 255, 241, 124, 0, 0, 179, 194, 0, 0, 111, 252, 0, 0, 75, 61, 0, 0, 143, 3, 0, 0, 179, 194, 254, 255, 111, 252, 0, 0, 75, 61, 254, 255, 143, 3, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bg10e"]
+resource_name = "forest_environment_Plane"
+_surfaces = [{
+"aabb": AABB(-0.999781, -9.1542e-10, -0.877983, 1.99956, 2, 1.75597),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"material": SubResource("StandardMaterial3D_43qx4"),
+"name": "foliage",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(72, 189, 0, 0, 0, 0, 85, 212, 182, 66, 0, 0, 254, 255, 85, 212, 72, 189, 254, 255, 0, 0, 85, 212, 182, 66, 254, 255, 255, 255, 85, 212, 0, 0, 0, 0, 13, 131, 217, 128, 255, 255, 0, 0, 241, 124, 217, 128, 0, 0, 255, 255, 13, 131, 217, 128, 255, 255, 255, 255, 241, 124, 217, 128, 179, 194, 0, 0, 111, 252, 83, 214, 75, 61, 0, 0, 143, 3, 83, 214, 179, 194, 254, 255, 111, 252, 83, 214, 75, 61, 254, 255, 143, 3, 83, 214, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_x4o0h")
+
+[node name="Foliage" type="MeshInstance3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("ArrayMesh_bg10e")
+skeleton = NodePath("")

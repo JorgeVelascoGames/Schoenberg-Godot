@@ -20,3 +20,5 @@ func select_area():
 	new_area.rotate_y(deg_to_rad(grades_to_rotate.pick_random()))
 	
 	AreaReady.emit()
+
+#A list of medieval sounding names
