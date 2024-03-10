@@ -104,9 +104,6 @@ transform = Transform3D(0.262411, 0, 0, 0, 1.27454, 0, 8.88178e-16, 0, 1.27454, 
 [node name="tile_wall18" parent="." instance=ExtResource("1_hc7lc")]
 transform = Transform3D(0.262411, 0, 0, 0, 1.27454, 0, 8.88178e-16, 0, 1.27454, 16.7646, 0, -5.87946)
 
-[node name="tile_wall19" parent="." instance=ExtResource("1_hc7lc")]
-transform = Transform3D(-1.14703e-08, 0, 1.27454, 0, 1.27454, 0, -0.262411, 0, -5.57119e-08, 15.7646, 0, -9.87946)
-
 [node name="tile_wall145" parent="." instance=ExtResource("1_hc7lc")]
 transform = Transform3D(-1.14703e-08, 0, 1.27454, 0, 1.27454, 0, -0.262411, 0, -5.57119e-08, 28.1017, 0, -5.8039)
 

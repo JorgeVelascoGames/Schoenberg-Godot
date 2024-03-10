@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://x4out5qfhpr5"]
+
+[ext_resource type="NavigationMesh" uid="uid://btu22lsqqpnxh" path="res://game_resources/navigation_meshes/forest_navmesh.tres" id="1_m0mbx"]
+[ext_resource type="PackedScene" uid="uid://dgg73leqioxu8" path="res://scenes/maps/map_elements/great_dead_tree.tscn" id="2_3l426"]
+[ext_resource type="PackedScene" uid="uid://b5rfsqlt42xfx" path="res://scenes/maps/map_elements/ground_tile_flat.tscn" id="2_s3p2i"]
+[ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="3_5rgoe"]
+[ext_resource type="PackedScene" uid="uid://dbpceaxs4ym66" path="res://scenes/maps/map_elements/rock.tscn" id="5_fhg8n"]
+[ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="10_w0op3"]
+[ext_resource type="PackedScene" uid="uid://cgsnpmrb6e0nt" path="res://scenes/maps/map_elements/forest_world_environment.tscn" id="11_tj71m"]
+
+[node name="ForestAreaGeneric1" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2248, -0.361219, -0.351753)
+navigation_mesh = ExtResource("1_m0mbx")
+
+[node name="great-dead-tree" parent="NavigationRegion3D" instance=ExtResource("2_3l426")]
+transform = Transform3D(1.91096, 0, 0, 0, 1.02723, 0, 0, 0, 1.91096, -0.11332, 5.16122, 1.1644)
+
+[node name="ground_tile_09" parent="NavigationRegion3D" instance=ExtResource("2_s3p2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("3_5rgoe")
+
+[node name="Rocks" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="rock" parent="NavigationRegion3D/Rocks" instance=ExtResource("5_fhg8n")]
+transform = Transform3D(3.25132, 0, 0, 0, 3.25132, 0, 0, 0, 3.25132, 0.815166, 0, -41.1027)
+
+[node name="rock2" parent="NavigationRegion3D/Rocks" instance=ExtResource("5_fhg8n")]
+transform = Transform3D(3.25132, 0, 0, 0, 3.25132, 0, 0, 0, 3.25132, 29.7863, 0, -20.5114)
+
+[node name="rock3" parent="NavigationRegion3D/Rocks" instance=ExtResource("5_fhg8n")]
+transform = Transform3D(-4.40813, 0.324486, 0, -0.324486, -4.40813, 0, 0, 0, 5.74536, -34.2827, 3.8147e-06, -17.0179)
+
+[node name="rock4" parent="NavigationRegion3D/Rocks" instance=ExtResource("5_fhg8n")]
+transform = Transform3D(3.89734, 1.99344, -0.486829, 1.82143, -3.29378, -1.2338, -1.53985, 1.14929, -2.69156, -34.8013, 3.8147e-06, 33.2386)
+
+[node name="rock5" parent="NavigationRegion3D/Rocks" instance=ExtResource("5_fhg8n")]
+transform = Transform3D(1.86449, 3.42666, 0, -4.7224, 1.35291, 0, 0, 0, 4.07839, 27.85, 3.8147e-06, 29.9809)
+
+[node name="Player" parent="." instance=ExtResource("10_w0op3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3122, 5.20482, -0.838163)
+
+[node name="ForestWorldEnvironment" parent="." instance=ExtResource("11_tj71m")]

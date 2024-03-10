@@ -7,9 +7,19 @@ background_mode = 2
 sky = SubResource("Sky_5tt6l")
 fog_enabled = true
 fog_light_color = Color(0.211765, 0.235294, 0.266667, 1)
-fog_sun_scatter = 1.0
-fog_density = 0.06
-fog_sky_affect = 0.165
+fog_light_energy = 0.0
+fog_sun_scatter = 0.05
+fog_density = 0.186
+fog_sky_affect = 0.0
 
 [node name="WorldEnviromentFlat" type="WorldEnvironment"]
 environment = SubResource("Environment_r3cox")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0568147, 0.998385, 0, -0.998385, -0.0568147, 0, 0, 0)
+light_color = Color(0.729412, 0.847059, 0.952941, 1)
+light_energy = 0.4
+light_indirect_energy = 0.4
+light_cull_mask = 4294967279
+shadow_enabled = true
+sky_mode = 1

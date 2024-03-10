@@ -9,6 +9,7 @@ cull_mode = 2
 albedo_texture = ExtResource("1_ax4wp")
 normal_enabled = true
 normal_texture = ExtResource("2_c48ng")
+uv1_scale = Vector3(0.225, 0.225, 0.225)
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n01di"]

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b55l5tr3of7u4"]
+
+[ext_resource type="Shader" path="res://assets/materials/PSX shader materials/psx_shader.gdshader" id="1_lup2e"]
+[ext_resource type="Texture2D" uid="uid://b6oma4mjcc0ll" path="res://assets/meshes/Environment/wall_lowres_tex_64x64.png" id="2_587ot"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lup2e")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.73
+shader_parameter/jitter = 0.529
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("2_587ot")

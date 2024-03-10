@@ -2,15 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_13yla"]
 [ext_resource type="Script" path="res://scripts/menu/settings_menu_canvas.gd" id="2_jcfsa"]
+[ext_resource type="Texture2D" uid="uid://cxeh41hgfo3tp" path="res://logos_and_icons/fog_and_flesh_logo.svg" id="2_qm0ab"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxakt"]
-bg_color = Color(0.180392, 0.180392, 0.180392, 1)
-border_color = Color(0, 0, 0, 1)
-shadow_color = Color(0.407843, 0.407843, 0.407843, 0.6)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wd5w8"]
-resource_local_to_scene = true
-font_size = 20
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jgtrm"]
+blend_mode = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi6wl"]
 bg_color = Color(0.305882, 0.305882, 0.305882, 1)
@@ -40,12 +35,27 @@ script = ExtResource("1_13yla")
 [node name="MainMenuCanvas" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="MainMenuCanvas"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_jgtrm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fxakt")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenuCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.0
+offset_right = 127.0
+offset_bottom = 173.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture = ExtResource("2_qm0ab")
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenuCanvas"]
 anchors_preset = 7
@@ -54,7 +64,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -35.0
-offset_top = -122.0
+offset_top = -93.0
 offset_right = 35.0
 offset_bottom = -21.0
 grow_horizontal = 2
@@ -80,19 +90,6 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Quit
 "
-
-[node name="GameNameLabel" type="Label" parent="MainMenuCanvas"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -86.5
-offset_right = 86.5
-offset_bottom = 79.0
-grow_horizontal = 2
-text = "Nombre del juego"
-label_settings = SubResource("LabelSettings_wd5w8")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="SettingsMenuCanvas" type="CanvasLayer" parent="."]
 visible = false

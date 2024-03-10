@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dapgjy4p4i2s8"]
+[gd_scene load_steps=8 format=3 uid="uid://dapgjy4p4i2s8"]
 
 [ext_resource type="Texture2D" uid="uid://b6oma4mjcc0ll" path="res://assets/meshes/Environment/wall_lowres_tex_64x64.png" id="1_pbokc"]
 [ext_resource type="Texture2D" uid="uid://bj0thblo3ovp1" path="res://assets/meshes/Environment/wall_lowres_tex_64x64_n.png" id="2_upcno"]
+[ext_resource type="PhysicsMaterial" uid="uid://5nc7xsfbscul" path="res://assets/materials/slide_physics_mat.tres" id="3_bnquu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30s10"]
 resource_name = "stone_wall"
@@ -54,6 +55,7 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4
 collision_mask = 0
+physics_material_override = ExtResource("3_bnquu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_60o07")

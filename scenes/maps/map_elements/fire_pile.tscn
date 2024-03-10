@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://dj1m68227f2il"]
 
-[ext_resource type="Texture2D" uid="uid://ctiwf2fqhp7ai" path="res://assets/meshes/Environment/burn_bark_lowres_64x64.png" id="1_bonti"]
-[ext_resource type="Texture2D" uid="uid://dy0m266q8dq7o" path="res://assets/meshes/Environment/log_lowres_n.png" id="2_pdymj"]
-[ext_resource type="Texture2D" uid="uid://4y4vrjf033nl" path="res://assets/textures/particles/Fire/fire_64x64.png" id="3_nc163"]
-[ext_resource type="Texture2D" uid="uid://denbv47utqau1" path="res://assets/textures/particles/Smoke/smoke_64x64.png" id="4_3kg12"]
+[ext_resource type="Texture2D" uid="uid://ctiwf2fqhp7ai" path="res://assets/meshes/Environment/burn_bark_lowres_64x64.png" id="1_aycj6"]
+[ext_resource type="Texture2D" uid="uid://dy0m266q8dq7o" path="res://assets/meshes/Environment/log_lowres_n.png" id="2_sf8w5"]
+[ext_resource type="Texture2D" uid="uid://4y4vrjf033nl" path="res://assets/textures/particles/Fire/fire_64x64.png" id="3_nm1p7"]
+[ext_resource type="Texture2D" uid="uid://denbv47utqau1" path="res://assets/textures/particles/Smoke/smoke_64x64.png" id="4_61tdg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0l2p"]
 resource_name = "logBurn"
 cull_mode = 2
-albedo_texture = ExtResource("1_bonti")
+albedo_texture = ExtResource("1_aycj6")
 normal_enabled = true
-normal_texture = ExtResource("2_pdymj")
+normal_texture = ExtResource("2_sf8w5")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ckypm"]
@@ -47,9 +47,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ckypm")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ejm3"]
-height = 7.34128
-radius = 1.514
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7kto"]
+size = Vector3(2.69043, 4.51862, 5.0343)
 
 [sub_resource type="Gradient" id="Gradient_x6oft"]
 offsets = PackedFloat32Array(0, 0.561644)
@@ -86,7 +85,7 @@ color_ramp = SubResource("GradientTexture1D_pnujb")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_nc163")
+albedo_texture = ExtResource("3_nm1p7")
 texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
@@ -124,7 +123,7 @@ color_ramp = SubResource("GradientTexture1D_56dui")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_3kg12")
+albedo_texture = ExtResource("4_61tdg")
 texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
@@ -135,30 +134,32 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_3elub"]
 material = SubResource("StandardMaterial3D_gdhn8")
 
-[node name="FireTall" type="MeshInstance3D"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="FirePile" type="Node3D"]
+
+[node name="FireTall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0, 0, 0.7, 0, 0, 0)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_qtncj")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="FireTall"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.44648, -6.76829e-08, 0.52639)
-shape = SubResource("CylinderShape3D_7ejm3")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FireTall/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.954729, 0.0305204, 0.346317)
+shape = SubResource("BoxShape3D_u7kto")
 
-[node name="Flames" type="GPUParticles3D" parent="."]
-transform = Transform3D(-8.69857e-08, -1.99, 0, 1.99, -8.69857e-08, 0, 0, 0, 1.99, -0.786993, 4.77769e-08, 0.429189)
+[node name="Flames" type="GPUParticles3D" parent="FireTall"]
+transform = Transform3D(-8.69857e-08, -1.99, 0, 1.99, -8.69857e-08, 0, 0, 0, 1.99, -0.786993, -0.480292, 0.429189)
 amount = 24
 lifetime = 1.28
 preprocess = 2.0
 process_material = SubResource("ParticleProcessMaterial_740x7")
 draw_pass_1 = SubResource("QuadMesh_oaqg0")
 
-[node name="Smoke" type="GPUParticles3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.71501, 0.0469994, 0.0160003)
+[node name="Smoke" type="GPUParticles3D" parent="FireTall"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.71501, -0.433293, 0.0160003)
 amount = 14
 lifetime = 4.93
 preprocess = 2.0
@@ -166,11 +167,13 @@ speed_scale = 0.95
 process_material = SubResource("ParticleProcessMaterial_31yxv")
 draw_pass_1 = SubResource("QuadMesh_3elub")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="FireTall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23913, 0.431661, 0)
 light_color = Color(0.886275, 0.486275, 0.109804, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 0.1
+light_size = 1.0
+light_cull_mask = 4294967279
 shadow_enabled = true
-omni_range = 22.0
+omni_range = 32.7316
 omni_attenuation = 0.0346741

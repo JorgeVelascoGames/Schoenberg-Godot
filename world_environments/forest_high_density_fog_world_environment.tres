@@ -10,15 +10,18 @@ sky_material = SubResource("PanoramaSkyMaterial_vi7qr")
 
 [resource]
 background_mode = 2
+background_energy_multiplier = 2.41
 sky = SubResource("Sky_ihrqo")
 ambient_light_source = 3
+ambient_light_sky_contribution = 0.0
 reflected_light_source = 2
 ssr_enabled = true
 fog_light_energy = 0.38
 fog_density = 0.1323
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.13
-volumetric_fog_emission = Color(0.156863, 0.156863, 0.156863, 1)
-volumetric_fog_emission_energy = 0.5
+volumetric_fog_emission = Color(0.152941, 0.152941, 0.152941, 1)
+volumetric_fog_emission_energy = 0.2
+volumetric_fog_gi_inject = 0.0
 volumetric_fog_ambient_inject = 1.4
 volumetric_fog_sky_affect = 0.99

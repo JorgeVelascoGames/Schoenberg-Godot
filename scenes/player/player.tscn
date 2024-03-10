@@ -21,11 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://bq85mkwqpbuct" path="res://scenes/items/shotgun_model.tscn" id="15_ld5cg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ik5j"]
+margin = 3.628
 radius = 0.255507
 height = 1.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8eul"]
-font_size = 8
+font_size = 22
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3yrhl"]
 radius = 0.397625
@@ -34,7 +35,6 @@ height = 1.39393
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.735789, 0)
 collision_mask = 6
-wall_min_slide_angle = 3.14159
 script = ExtResource("1_oyen4")
 air_acceleration = 111
 speed = 3.0
@@ -81,6 +81,13 @@ visible = false
 script = ExtResource("5_bmk2h")
 
 [node name="EquipedItems" type="Node3D" parent="Camera3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+visible = false
+light_color = Color(0.952941, 0.65098, 0.156863, 1)
+light_energy = 1.6
+spot_range = 30.6917
+spot_angle = 32.3438
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_7ik5j")
@@ -144,6 +151,7 @@ target_position = Vector3(0, 1.3, 0)
 collision_mask = 4
 
 [node name="PlayerUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="PlayerUI"]
 anchors_preset = 8
@@ -185,10 +193,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -52.0
-offset_right = -1.0
-offset_bottom = -24.0
+offset_left = -86.0
+offset_top = -89.0
+offset_right = -4.0
+offset_bottom = -45.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "item"
@@ -202,8 +210,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -25.0
+offset_left = -89.0
+offset_top = -42.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "item"
@@ -238,6 +246,11 @@ omni_range = 2.0
 omni_attenuation = 0.00340059
 
 [node name="Quests" type="Node" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+light_color = Color(0.796078, 0.705882, 0.470588, 1)
+spot_range = 7.3487
+spot_angle = 35.312
 
 [connection signal="lost_health_state" from="Health" to="." method="_on_health_lost_health_state"]
 [connection signal="body_entered" from="HurtBox" to="Health" method="_on_hurt_box_body_entered"]

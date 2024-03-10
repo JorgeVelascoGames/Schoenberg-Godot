@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cnl02hkvyn3ug" path="res://assets/textures/ground/grond_lowres_64x64_n.png" id="2_yi61v"]
 
 [resource]
+diffuse_mode = 1
 albedo_texture = ExtResource("1_fyiye")
 metallic_specular = 0.0
 normal_enabled = true
 normal_texture = ExtResource("2_yi61v")
 uv1_scale = Vector3(50, 50, 50)
-texture_filter = 0
+texture_filter = 2

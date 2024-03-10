@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://s16d73dguyk1"]
+
+[ext_resource type="Shader" path="res://assets/materials/PSX shader materials/psx_shader.gdshader" id="1_0bwwp"]
+[ext_resource type="Texture2D" uid="uid://don3ycdaaugwe" path="res://assets/meshes/Environment/bark_brown_lowres_64x64.png" id="2_an6u0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0bwwp")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.25
+shader_parameter/jitter = 0.529
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("2_an6u0")

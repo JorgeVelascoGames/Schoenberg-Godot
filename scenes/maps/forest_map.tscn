@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cev16e0pss1ob"]
 
 [ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="1_0q85k"]
-[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/enviroments/forest/campfire.tscn" id="3_kc4cr"]
+[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/maps/map_elements/campfire.tscn" id="3_kc4cr"]
 [ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="3_w5yo8"]
 [ext_resource type="Texture2D" uid="uid://drlfd3h4aofdr" path="res://assets/textures/sky_night.png" id="4_algk4"]
 

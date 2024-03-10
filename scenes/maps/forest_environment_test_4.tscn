@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bdpyrfe35wfu1" path="res://scenes/models/fleshman.tscn" id="3_ds2hy"]
 [ext_resource type="Material" uid="uid://dwgp7vmlnnt4t" path="res://tools/grid_mat.tres" id="3_yopgg"]
 [ext_resource type="Material" uid="uid://cnp5brenrr2dl" path="res://assets/materials/forest_map_ground.tres" id="4_y58tg"]
-[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/enviroments/forest/campfire.tscn" id="5_ff5gi"]
+[ext_resource type="PackedScene" uid="uid://bniijg4qkfmsw" path="res://scenes/maps/map_elements/campfire.tscn" id="5_ff5gi"]
 [ext_resource type="PackedScene" uid="uid://7wu6f1hlg7tk" path="res://scenes/maps/map_elements/world_enviroment_flat.tscn" id="8_gmk74"]
-[ext_resource type="PackedScene" uid="uid://dj1m68227f2il" path="res://scenes/maps/map_elements/fire_tall.tscn" id="8_rxijb"]
+[ext_resource type="PackedScene" uid="uid://dj1m68227f2il" path="res://scenes/maps/map_elements/fire_pile.tscn" id="8_rxijb"]
 
 [node name="forest_environment" instance=ExtResource("1_y00fa")]
 
