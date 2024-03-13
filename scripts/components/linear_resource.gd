@@ -1,13 +1,11 @@
 extends Node
 
 class_name LinearResource
-
+@export var resource_bar: TextureProgressBar
 @export var max_resource: int
 @export var current_resource: int
 @export var consumption_per_second: int
 @export var regeneration_per_second: int
-##With invert_consumption, the UI bar will fill instead of deplete, like a loading bar
-@export var invert_consumption: bool
 @export var fill_on_ready: bool
 
 var consuming: bool = false
@@ -17,8 +15,12 @@ var bonusArray: Array[ResoruceBonus]
 
 
 func _ready() -> void:
+	resource_bar.max_value = max_resource
+	
 	if fill_on_ready:
 		fill_resource()
+	
+	resource_bar.value = current_resource
 
 
 func consume_resource():
@@ -29,6 +31,8 @@ func consume_resource():
 		return
 	
 	current_resource -= consumption_per_second
+	
+	resource_bar.value = current_resource
 
 
 func regenerate_resource():
@@ -39,6 +43,8 @@ func regenerate_resource():
 		return
 	
 	current_resource += regeneration_per_second + regen_bonus()
+	
+	resource_bar.value = current_resource
 
 
 func add_resource(amount: int) -> void:
@@ -46,6 +52,8 @@ func add_resource(amount: int) -> void:
 	
 	if current_resource > max_resource:
 		current_resource = max_resource
+	
+	resource_bar.value = current_resource
 
 
 func substract_resource(amount: int) -> void:
@@ -53,14 +61,18 @@ func substract_resource(amount: int) -> void:
 	
 	if current_resource < 0:
 		current_resource = 0
+	
+	resource_bar.value = current_resource
 
 
 func deplete_resource():
 	current_resource = 0
+	resource_bar.value = current_resource
 
 
 func fill_resource():
 	current_resource = max_resource
+	resource_bar.value = current_resource
 
 
 func set_resource_consuming():

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c7xxxbcw31psh"]
+
+[ext_resource type="Shader" path="res://assets/materials/PSX shader materials/psx_shader.gdshader" id="1_6tb5k"]
+[ext_resource type="Texture2D" uid="uid://duv03k1l1cky3" path="res://assets/meshes/Environment/rock_lowres_64x64.png" id="2_1v231"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6tb5k")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.25
+shader_parameter/jitter = 0.49
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("2_1v231")

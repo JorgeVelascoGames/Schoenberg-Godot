@@ -12,6 +12,7 @@ class_name Player
 @onready var ray_cast_interact: RayCast3D = $Camera3D/RayCastInteract as RayCast3D
 @onready var equipment: Equipment = $Equipment as Equipment
 @onready var quests: PlayerQuestTracker = $Quests as PlayerQuestTracker
+@onready var player_ui: PlayerUI = $PlayerUI as PlayerUI
 
 var canMoveAndRotate = true
 var mouse_sens : float = 0.15

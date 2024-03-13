@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbpceaxs4ym66"]
+[gd_scene load_steps=8 format=3 uid="uid://dbpceaxs4ym66"]
 
 [ext_resource type="Texture2D" uid="uid://duv03k1l1cky3" path="res://assets/meshes/Environment/rock_lowres_64x64.png" id="1_ltmd6"]
 [ext_resource type="Texture2D" uid="uid://ckwnvhd6efxmh" path="res://assets/meshes/Environment/rock_lowres_64x64_n.png" id="2_ufe5b"]
+[ext_resource type="Material" uid="uid://c7xxxbcw31psh" path="res://assets/materials/PSX shader materials/rock_shader_mat.tres" id="3_dp6aw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upexf"]
 resource_name = "rock"
@@ -54,6 +55,7 @@ data = PackedVector3Array(-0.0297394, -0.619621, 0.0126297, -0.132625, -0.536789
 [node name="rock" type="MeshInstance3D"]
 mesh = SubResource("ArrayMesh_o7834")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_dp6aw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4

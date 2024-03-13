@@ -22,6 +22,7 @@ func enter(_msg : ={}) -> void:
 	cooldown_timer.wait_time = item.cooldown
 	prepare_item_timer.timeout.connect(_on_item_ready)
 	prepare_item_timer.wait_time = item.time_to_prepare
+	player.player_ui.start_progress_bar(item.time_to_prepare)
 	prepare_item_timer.start()
 
 
@@ -63,3 +64,4 @@ func exit() -> void:
 	player.canMoveAndRotate = true
 	player.force_look_down = false
 	item_ready = false
+	player.player_ui.close_progress_bar()

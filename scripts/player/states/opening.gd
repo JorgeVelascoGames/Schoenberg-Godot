@@ -1,5 +1,4 @@
 extends PlayerState
-
 class_name Opening
 
 @onready var timer = $Timer as Timer
@@ -20,6 +19,7 @@ func enter(msg : ={}) -> void:
 	timer.wait_time = opening_timer
 	timer.start()
 	timer.timeout.connect(timer_done)
+	player.player_ui.start_progress_bar(opening_timer)
 	#TODO
 	#Chest start animation 
 
@@ -40,3 +40,4 @@ func exit() -> void:
 	timer.stop()
 	timer.timeout.disconnect(timer_done)
 	player.canMoveAndRotate = true
+	player.player_ui.close_progress_bar()

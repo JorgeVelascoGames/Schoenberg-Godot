@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlthkwdbqdamv"]
+[gd_scene load_steps=11 format=3 uid="uid://dlthkwdbqdamv"]
 
+[ext_resource type="Script" path="res://scripts/player/items/item_model_controller.gd" id="1_0eun8"]
 [ext_resource type="Material" uid="uid://dirtuv4d8h28d" path="res://assets/materials/medkit_border_mat.tres" id="2_drm7i"]
 [ext_resource type="Texture2D" uid="uid://cgfqqvisfpqal" path="res://assets/meshes/medkit_metal_red_rust_lowres_tex.png" id="2_xw3j5"]
 [ext_resource type="Material" uid="uid://qoubrca7lhbj" path="res://assets/materials/medkit_red_mat.tres" id="3_atv10"]
@@ -144,6 +145,7 @@ _data = {
 }
 
 [node name="Medkit_model" type="Node3D"]
+script = ExtResource("1_0eun8")
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.406003, 0, 0, 0, 0.406003, 0, 0, 0, 0.406003, 0, 0, 0)

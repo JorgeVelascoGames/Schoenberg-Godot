@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg60vtsxclsy5"]
+[gd_scene load_steps=8 format=3 uid="uid://bg60vtsxclsy5"]
 
 [ext_resource type="Material" uid="uid://dwgp7vmlnnt4t" path="res://tools/grid_mat.tres" id="1_rjcwu"]
 [ext_resource type="PackedScene" uid="uid://dxwqns1tt5ci6" path="res://scenes/player/player.tscn" id="2_rq0mc"]
 [ext_resource type="PackedScene" uid="uid://mhbkjx6yu8is" path="res://scenes/interacts/chest.tscn" id="3_umjxj"]
+[ext_resource type="PhysicsMaterial" uid="uid://5nc7xsfbscul" path="res://assets/materials/slide_physics_mat.tres" id="4_7h8wf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_em4hs"]
 sky_horizon_color = Color(0.700171, 0.734088, 0.798284, 1)
@@ -39,3 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17148, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08206, 2.99317)
 collision_layer = 12
 collision_mask = 4
+physics_material_override = ExtResource("4_7h8wf")

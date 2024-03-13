@@ -1,5 +1,4 @@
 extends Item
-
 class_name  Shotgun
 
 var ray: RayCast3D
@@ -31,6 +30,7 @@ func unequip_item():
 	ray.enabled = false
 
 
+@warning_ignore("unused_parameter")
 func use_item(player: Player):
 	if ray.is_colliding() and ray.get_collider() is EnemyBrain:
 			ray.get_collider().get_stuned()

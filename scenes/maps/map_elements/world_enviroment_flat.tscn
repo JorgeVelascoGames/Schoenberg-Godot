@@ -1,24 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://7wu6f1hlg7tk"]
+[gd_scene load_steps=5 format=3 uid="uid://7wu6f1hlg7tk"]
 
-[sub_resource type="Sky" id="Sky_5tt6l"]
+[ext_resource type="Texture2D" uid="uid://drlfd3h4aofdr" path="res://assets/textures/sky_night.png" id="1_xr0vf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vi7qr"]
+panorama = ExtResource("1_xr0vf")
+
+[sub_resource type="Sky" id="Sky_ihrqo"]
+sky_material = SubResource("PanoramaSkyMaterial_vi7qr")
 
 [sub_resource type="Environment" id="Environment_r3cox"]
 background_mode = 2
-sky = SubResource("Sky_5tt6l")
+sky = SubResource("Sky_ihrqo")
+ambient_light_source = 3
+ambient_light_color = Color(0.52549, 0.52549, 0.52549, 1)
 fog_enabled = true
-fog_light_color = Color(0.211765, 0.235294, 0.266667, 1)
-fog_light_energy = 0.0
-fog_sun_scatter = 0.05
-fog_density = 0.186
-fog_sky_affect = 0.0
+fog_light_color = Color(0.0980392, 0.113725, 0.129412, 1)
+fog_light_energy = 0.1
+fog_density = 0.2521
+fog_aerial_perspective = 0.402
+fog_sky_affect = 0.303
 
 [node name="WorldEnviromentFlat" type="WorldEnvironment"]
 environment = SubResource("Environment_r3cox")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0568147, 0.998385, 0, -0.998385, -0.0568147, 0, 0, 0)
+transform = Transform3D(0.849543, -0.0299708, 0.526667, -0.527519, -0.0482665, 0.848171, 1.65055e-09, -0.998385, -0.0568147, 0, -0.012601, 0.000304461)
 light_color = Color(0.729412, 0.847059, 0.952941, 1)
-light_energy = 0.4
 light_indirect_energy = 0.4
 light_cull_mask = 4294967279
 shadow_enabled = true

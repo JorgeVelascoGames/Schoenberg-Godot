@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dxwqns1tt5ci6"]
+[gd_scene load_steps=28 format=3 uid="uid://dxwqns1tt5ci6"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_oyen4"]
 [ext_resource type="Script" path="res://scripts/player/items/item_manager.gd" id="2_6kcbb"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_0ixqj"]
 [ext_resource type="PackedScene" uid="uid://dlthkwdbqdamv" path="res://scenes/items/medkit_model.tscn" id="4_k0tul"]
 [ext_resource type="Script" path="res://scripts/player/states/walk.gd" id="4_njtbl"]
-[ext_resource type="Script" path="res://scripts/player/items/item_model_controller.gd" id="5_bmk2h"]
 [ext_resource type="Script" path="res://scripts/player/states/run.gd" id="5_qpimf"]
 [ext_resource type="Script" path="res://scripts/player/states/crouch.gd" id="6_6ba3f"]
 [ext_resource type="Script" path="res://scripts/player/states/frenzy.gd" id="6_ncryi"]
@@ -19,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://cfar6ppq2vylu" path="res://scenes/components/equipment.tscn" id="14_s8lw7"]
 [ext_resource type="Script" path="res://scripts/player/states/opening.gd" id="15_kqbh3"]
 [ext_resource type="PackedScene" uid="uid://bq85mkwqpbuct" path="res://scenes/items/shotgun_model.tscn" id="15_ld5cg"]
+[ext_resource type="Script" path="res://scenes/player/player_ui.gd" id="16_u52o2"]
+[ext_resource type="Texture2D" uid="uid://n8bvikgm6o56" path="res://sprites/UI/stamina_bar.png" id="17_am7qu"]
+[ext_resource type="Texture2D" uid="uid://cklqbvatyc821" path="res://sprites/UI/progres_bar.png" id="17_biual"]
+[ext_resource type="Texture2D" uid="uid://ds0ptmm0ylfvf" path="res://sprites/UI/stamina_bar_fil.png" id="18_0m33x"]
+[ext_resource type="Texture2D" uid="uid://dstagcypgwa6a" path="res://sprites/UI/progres_bar_fil.png" id="18_ag5cu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7ik5j"]
 margin = 3.628
@@ -27,6 +31,8 @@ height = 1.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_w8eul"]
 font_size = 22
+
+[sub_resource type="Theme" id="Theme_ircrq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3yrhl"]
 radius = 0.397625
@@ -78,12 +84,10 @@ visible = false
 [node name="Medkit_model" parent="Camera3D/Items" instance=ExtResource("4_k0tul")]
 transform = Transform3D(0.315393, -1.03634e-08, 0.674946, 0.00193173, 0.744996, -0.000902764, -0.674944, 0.00213224, 0.315392, 0.158187, -0.751955, -0.860158)
 visible = false
-script = ExtResource("5_bmk2h")
 
 [node name="EquipedItems" type="Node3D" parent="Camera3D"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-visible = false
 light_color = Color(0.952941, 0.65098, 0.156863, 1)
 light_energy = 1.6
 spot_range = 30.6917
@@ -137,6 +141,7 @@ one_shot = true
 
 [node name="Opening" type="Node" parent="StateMachine"]
 script = ExtResource("15_kqbh3")
+opening_timer = 20.0
 
 [node name="Timer" type="Timer" parent="StateMachine/Opening"]
 one_shot = true
@@ -151,7 +156,7 @@ target_position = Vector3(0, 1.3, 0)
 collision_mask = 4
 
 [node name="PlayerUI" type="CanvasLayer" parent="."]
-visible = false
+script = ExtResource("16_u52o2")
 
 [node name="TextureRect" type="TextureRect" parent="PlayerUI"]
 anchors_preset = 8
@@ -219,6 +224,77 @@ label_settings = SubResource("LabelSettings_w8eul")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Control2" type="Control" parent="PlayerUI"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.065, 0.055)
+size_flags_horizontal = 4
+
+[node name="StaminaBar" type="TextureProgressBar" parent="PlayerUI/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -498.0
+offset_top = -100.0
+offset_right = 498.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ircrq")
+max_value = 25.0
+step = 0.0
+value = 5.0
+texture_under = ExtResource("17_am7qu")
+texture_progress = ExtResource("18_0m33x")
+texture_progress_offset = Vector2(15, 15)
+
+[node name="Control" type="Control" parent="PlayerUI"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -21.62
+offset_bottom = -21.62
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+
+[node name="ActionTimerBar" type="TextureProgressBar" parent="PlayerUI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -393.8
+offset_right = 496.0
+offset_bottom = -193.8
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 25.0
+step = 0.0
+value = 5.0
+texture_under = ExtResource("17_biual")
+texture_progress = ExtResource("18_ag5cu")
+texture_progress_offset = Vector2(40, 30)
+
+[node name="TextureTimer" type="Timer" parent="PlayerUI/Control/ActionTimerBar"]
+one_shot = true
+
 [node name="Health" parent="." instance=ExtResource("10_68lia")]
 current_health_state = 1
 
@@ -230,10 +306,12 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
 shape = SubResource("CapsuleShape3D_3yrhl")
 
-[node name="Stamina" parent="." instance=ExtResource("13_6kjbc")]
-max_resource = 1000
+[node name="Stamina" parent="." node_paths=PackedStringArray("resource_bar") instance=ExtResource("13_6kjbc")]
+resource_bar = NodePath("../PlayerUI/Control2/StaminaBar")
+max_resource = 200
 consumption_per_second = 10
 regeneration_per_second = 7
+fill_on_ready = true
 
 [node name="Equipment" parent="." instance=ExtResource("14_s8lw7")]
 
@@ -252,5 +330,6 @@ light_color = Color(0.796078, 0.705882, 0.470588, 1)
 spot_range = 7.3487
 spot_angle = 35.312
 
+[connection signal="timeout" from="PlayerUI/Control/ActionTimerBar/TextureTimer" to="PlayerUI" method="_on_texture_timer_timeout"]
 [connection signal="lost_health_state" from="Health" to="." method="_on_health_lost_health_state"]
 [connection signal="body_entered" from="HurtBox" to="Health" method="_on_hurt_box_body_entered"]

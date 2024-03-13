@@ -3,6 +3,7 @@ extends Resource
 class_name ItemResource
 
 @export var item_name: String
+@export var item_icon: Texture2D
 
 @export var time_to_prepare: float = 1.0
 @export var cooldown: float = 1.0

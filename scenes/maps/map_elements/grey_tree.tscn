@@ -7,7 +7,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7xfw"]
 resource_name = "bark_dark"
 cull_mode = 2
+specular_mode = 2
 albedo_texture = ExtResource("1_2821i")
+metallic_specular = 0.0
+roughness = 0.0
 normal_enabled = true
 normal_texture = ExtResource("2_wl3i0")
 texture_filter = 2

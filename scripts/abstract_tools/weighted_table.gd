@@ -4,7 +4,7 @@ var items: Array[Dictionary] = []
 var weight_sum = 0
 
 
-func add_item(item, weight: int):
+func add_item(item: Item, weight: int):
 	items.append({"item": item, "weight": weight})
 	weight_sum += weight
 

@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_82qwv"]
 
-[node name="Chest" type="RigidBody3D"]
+[node name="Chest" type="StaticBody3D"]
 script = ExtResource("1_13meu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
